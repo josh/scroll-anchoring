@@ -1,0 +1,39 @@
+{
+  "name": "preserve-scroll-position",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/preserve-scroll-position.umd.js",
+  "module": "dist/preserve-scroll-position.esm.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "lint": "eslint .",
+    "prebuild": "npm run clean && npm run lint && mkdir -p dist",
+    "build": "rollup -c && cp preserve-scroll-position.js.flow dist/preserve-scroll-position.esm.js.flow && cp preserve-scroll-position.js.flow dist/preserve-scroll-position.umd.js.flow",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josh/preserve-scroll-position.git"
+  },
+  "author": "Joshua Peek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/josh/preserve-scroll-position/issues"
+  },
+  "homepage": "https://github.com/josh/preserve-scroll-position#readme",
+  "files": [
+    "dist/preserve-scroll-position.esm.js.flow",
+    "dist/preserve-scroll-position.esm.js",
+    "dist/preserve-scroll-position.umd.js.flow",
+    "dist/preserve-scroll-position.umd.js"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "eslint": "^5.5.0",
+    "eslint-plugin-github": "^1.2.1",
+    "prettier": "^1.14.2",
+    "rollup": "^0.65.0",
+    "rollup-plugin-babel": "^4.0.3"
+  }
+}
