@@ -1,6 +1,6 @@
 {
   "name": "scroll-anchoring",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Preserves the user's scroll position while DOM mutations change the page.",
   "main": "dist/scroll-anchoring.umd.js",
   "module": "dist/scroll-anchoring.esm.js",
