@@ -12,7 +12,7 @@ export default {
     {
       file: pkg['main'],
       format: 'umd',
-      name: 'PreserveScrollPosition'
+      name: 'ScrollAnchoring'
     }
   ],
   plugins: [

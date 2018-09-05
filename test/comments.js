@@ -1,8 +1,8 @@
-/* global PreserveScrollPosition */
+/* global ScrollAnchoring */
 
 function randomComment() {
   const comments = Array.from(document.querySelectorAll('#comments > p')).sort(() => 0.5 - Math.random())
-  let findAnchorNode = PreserveScrollPosition.findAnchorNode(document)
+  let findAnchorNode = ScrollAnchoring.findAnchorNode(document)
   if (findAnchorNode) findAnchorNode = findAnchorNode.closest('p')
   return comments[0] === findAnchorNode ? comments[1] : comments[0]
 }
@@ -17,7 +17,7 @@ function install() {
   const t1 = setTimeout(() => {
     i2 = setInterval(() => {
       if (toInsert) {
-        PreserveScrollPosition.preserveAnchorNodePosition(document, () => {
+        ScrollAnchoring.preserveAnchorNodePosition(document, () => {
           document.querySelector('#comments').append(toInsert)
           toInsert = null
         })
@@ -27,7 +27,7 @@ function install() {
 
   const i3 = setInterval(() => {
     if (!toInsert) {
-      PreserveScrollPosition.preserveAnchorNodePosition(document, () => {
+      ScrollAnchoring.preserveAnchorNodePosition(document, () => {
         toInsert = randomComment()
         toInsert.remove()
       })
