@@ -1,31 +1,31 @@
 {
-  "name": "preserve-scroll-position",
+  "name": "scroll-anchoring",
   "version": "0.0.0",
-  "description": "",
-  "main": "dist/preserve-scroll-position.umd.js",
-  "module": "dist/preserve-scroll-position.esm.js",
+  "description": "Preserves the user's scroll position while DOM mutations change the page.",
+  "main": "dist/scroll-anchoring.umd.js",
+  "module": "dist/scroll-anchoring.esm.js",
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint .",
     "prebuild": "npm run clean && npm run lint && mkdir -p dist",
-    "build": "rollup -c && cp preserve-scroll-position.js.flow dist/preserve-scroll-position.esm.js.flow && cp preserve-scroll-position.js.flow dist/preserve-scroll-position.umd.js.flow",
+    "build": "rollup -c && cp scroll-anchoring.js.flow dist/scroll-anchoring.esm.js.flow && cp scroll-anchoring.js.flow dist/scroll-anchoring.umd.js.flow",
     "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/josh/preserve-scroll-position.git"
+    "url": "git+https://github.com/josh/scroll-anchoring.git"
   },
   "author": "Joshua Peek",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/josh/preserve-scroll-position/issues"
+    "url": "https://github.com/josh/scroll-anchoring/issues"
   },
-  "homepage": "https://github.com/josh/preserve-scroll-position#readme",
+  "homepage": "https://github.com/josh/scroll-anchoring#readme",
   "files": [
-    "dist/preserve-scroll-position.esm.js.flow",
-    "dist/preserve-scroll-position.esm.js",
-    "dist/preserve-scroll-position.umd.js.flow",
-    "dist/preserve-scroll-position.umd.js"
+    "dist/scroll-anchoring.esm.js.flow",
+    "dist/scroll-anchoring.esm.js",
+    "dist/scroll-anchoring.umd.js.flow",
+    "dist/scroll-anchoring.umd.js"
   ],
   "devDependencies": {
     "@babel/core": "^7.0.0",

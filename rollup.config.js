@@ -3,7 +3,7 @@ import babel from 'rollup-plugin-babel'
 const pkg = require('./package.json')
 
 export default {
-  input: 'preserve-scroll-position.js',
+  input: 'scroll-anchoring.js',
   output: [
     {
       file: pkg['module'],
