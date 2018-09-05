@@ -27,6 +27,12 @@ npm install
 npm test
 ```
 
+## See Also
+
+- [CSS Scroll Anchoring Module Level 1](https://drafts.csswg.org/css-scroll-anchoring/)
+- [WICG/ScrollAnchoring](https://github.com/WICG/ScrollAnchoring)
+- [Chrome Platform Status - Intervention: Scroll Anchoring](https://www.chromestatus.com/feature/5700102471548928)
+
 ## License
 
 Distributed under the MIT license. See LICENSE for details.
