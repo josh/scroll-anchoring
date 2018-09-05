@@ -6,7 +6,7 @@
 //
 // Returns result of `callback` function.
 export function preserveInteractivePosition(document, callback) {
-  preservingScrollPosition(interactiveElement(document), callback)
+  preservingScrollPosition(findAnchorNode(document), callback)
 }
 
 // Preserves scroll position of anchor node.
@@ -59,15 +59,15 @@ export function preservingScrollPosition(anchorNode, callback) {
   return result
 }
 
-// Public: Detect primary interactive element on the page.
+// Public: Detect primary interactive node on the page.
 //
 // Attempts to guess which element on the page the user has their primary
 // attention on. When using a mouse its usually whatever they are hovering
 // over. But if they have focus on some field consider that over the mouse
 // position.
 //
-// Returns an Element or null.
-export function interactiveElement(document) {
+// Returns an Node or null.
+export function findAnchorNode(document) {
   if (document.activeElement !== document.body) {
     return document.activeElement
   }

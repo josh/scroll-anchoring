@@ -2,9 +2,9 @@
 
 function randomComment() {
   const comments = Array.from(document.querySelectorAll('#comments > p')).sort(() => 0.5 - Math.random())
-  let interactiveElement = PreserveScrollPosition.interactiveElement(document)
-  if (interactiveElement) interactiveElement = interactiveElement.closest('p')
-  return comments[0] === interactiveElement ? comments[1] : comments[0]
+  let findAnchorNode = PreserveScrollPosition.findAnchorNode(document)
+  if (findAnchorNode) findAnchorNode = findAnchorNode.closest('p')
+  return comments[0] === findAnchorNode ? comments[1] : comments[0]
 }
 
 function install() {

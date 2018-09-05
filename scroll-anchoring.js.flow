@@ -1,4 +1,4 @@
 /* @flow strict */
-declare export function interactiveElement(document: Document): ?Element
+declare export function findAnchorNode(document: Document): ?Node
 declare export function preserveInteractivePosition<T>(document: Document, callback: () => T): Promise<T>
 declare export function preservingScrollPosition<T>(anchorNode: Node, callback: () => T): T
