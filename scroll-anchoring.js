@@ -5,7 +5,7 @@
 // callback - Function to call that may change the scroll position.
 //
 // Returns result of `callback` function.
-export function preserveAnchorNodePosition(document, callback) {
+export function preserveInteractivePosition(document, callback) {
   preservingScrollPosition(findAnchorNode(document), callback)
 }
 
