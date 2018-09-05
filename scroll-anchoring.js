@@ -4,9 +4,9 @@
 //
 // callback - Function to call that may change the scroll position.
 //
-// Returns result of `callback` function.
+// Returns a Promise wrapped result of `callback` function.
 export function preserveAnchorNodePosition(document, callback) {
-  preservePosition(findAnchorNode(document), callback)
+  return preservePosition(findAnchorNode(document), callback)
 }
 
 // Preserves scroll position of anchor node.
@@ -14,11 +14,11 @@ export function preserveAnchorNodePosition(document, callback) {
 // node     - Node
 // callback - Function to call that may change the scroll position.
 //
-// Returns result of `callback` function.
+// Returns a Promise wrapped result of `callback` function.
 export function preservePosition(anchorNode, callback) {
   let node = anchorNode
   if (!node) {
-    return callback()
+    return Promise.resolve(callback())
   }
 
   const documentElement = node.ownerDocument.documentElement
@@ -44,19 +44,18 @@ export function preservePosition(anchorNode, callback) {
 
   const origBoundingRects = computeAncestorBoundingRects(node)
 
-  const result = callback()
+  return Promise.resolve(callback()).then(result => {
+    const origBoundingRect = firstAttachedBoundingRect(origBoundingRects)
+    if (origBoundingRect) {
+      node = origBoundingRect.element
+      const origTop = origBoundingRect.top
+      const origLeft = origBoundingRect.left
+      const {top, left} = node.getBoundingClientRect()
 
-  const origBoundingRect = firstAttachedBoundingRect(origBoundingRects)
-  if (origBoundingRect) {
-    node = origBoundingRect.element
-    const origTop = origBoundingRect.top
-    const origLeft = origBoundingRect.left
-    const {top, left} = node.getBoundingClientRect()
-
-    cumulativeScrollBy(node, left - origLeft, top - origTop)
-  }
-
-  return result
+      cumulativeScrollBy(node, left - origLeft, top - origTop)
+    }
+    return result
+  })
 }
 
 // Public: Detect primary interactive node on the page.
