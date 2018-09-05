@@ -10,7 +10,14 @@ $ npm install scroll-anchoring
 
 ## Usage
 
-TODO
+```js
+import {preserveAnchorNodePosition} from 'scroll-anchoring'
+
+const comments = document.getElementById('comments')
+preserveAnchorNodePosition(document, () => {
+  comments.insertAdjacentHTML('beforeend', newCommentHtml)
+})
+```
 
 ## Browser support
 
