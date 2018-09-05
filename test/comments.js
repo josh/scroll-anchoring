@@ -17,7 +17,7 @@ function install() {
   const t1 = setTimeout(() => {
     i2 = setInterval(() => {
       if (toInsert) {
-        PreserveScrollPosition.preserveInteractivePosition(document, () => {
+        PreserveScrollPosition.preserveAnchorNodePosition(document, () => {
           document.querySelector('#comments').append(toInsert)
           toInsert = null
         })
@@ -27,7 +27,7 @@ function install() {
 
   const i3 = setInterval(() => {
     if (!toInsert) {
-      PreserveScrollPosition.preserveInteractivePosition(document, () => {
+      PreserveScrollPosition.preserveAnchorNodePosition(document, () => {
         toInsert = randomComment()
         toInsert.remove()
       })
