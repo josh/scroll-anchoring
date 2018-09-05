@@ -9,7 +9,7 @@ document.addEventListener('click', function(event) {
   beforeEl.style.background = `#${Math.floor(Math.random() * 16777215).toString(16)}`
   afterEl.style.background = `#${Math.floor(Math.random() * 16777215).toString(16)}`
 
-  PreserveScrollPosition.preservingScrollPosition(el, () => {
+  PreserveScrollPosition.preservePosition(el, () => {
     el.insertAdjacentElement('beforebegin', beforeEl)
     el.insertAdjacentElement('afterend', afterEl)
   })
