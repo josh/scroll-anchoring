@@ -9,19 +9,19 @@ export function preserveInteractivePosition(document, callback) {
   preservingScrollPosition(interactiveElement(document), callback)
 }
 
-// Preserves scroll position of element.
+// Preserves scroll position of anchor node.
 //
-// el       - Element
+// node     - Node
 // callback - Function to call that may change the scroll position.
 //
 // Returns result of `callback` function.
-export function preservingScrollPosition(element, callback) {
-  let el = element
-  if (!el) {
+export function preservingScrollPosition(anchorNode, callback) {
+  let node = anchorNode
+  if (!node) {
     return callback()
   }
 
-  const documentElement = element.ownerDocument.documentElement
+  const documentElement = node.ownerDocument.documentElement
 
   function computeAncestorBoundingRects(element) {
     const rects = []
@@ -42,18 +42,18 @@ export function preservingScrollPosition(element, callback) {
     }
   }
 
-  const origBoundingRects = computeAncestorBoundingRects(el)
+  const origBoundingRects = computeAncestorBoundingRects(node)
 
   const result = callback()
 
   const origBoundingRect = firstAttachedBoundingRect(origBoundingRects)
   if (origBoundingRect) {
-    el = origBoundingRect.element
+    node = origBoundingRect.element
     const origTop = origBoundingRect.top
     const origLeft = origBoundingRect.left
-    const {top, left} = el.getBoundingClientRect()
+    const {top, left} = node.getBoundingClientRect()
 
-    cumulativeScrollBy(el, left - origLeft, top - origTop)
+    cumulativeScrollBy(node, left - origLeft, top - origTop)
   }
 
   return result
