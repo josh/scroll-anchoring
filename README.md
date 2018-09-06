@@ -39,6 +39,24 @@ button.addEventListener('click', () => {
 })
 ```
 
+## Origins
+
+Circa 2012, I was implementing ajax and live updates for GitHub's Issue and PR discussion pages. So when you typed a comment and hit submit we'd dynamically insert it on the page without a full page refresh. In addition, any comments left by others would be inserted into the discussion thread in real time.
+
+One usability annoyance with the initial concept was that inserting new comments and updating other elements would cause the user scroll position to unexpectedly jump up or down. You might be reading a comment while a new one came in and pushed it out the viewport. Or you'd be typing in the textarea and new comments would push the field out of the viewport. Pretty annoying.
+
+The idea was to detect an anchor node on the screen that we thought the user would most care about. Then keep that node at the same viewport offsets after applying a page update. If you're actively typing in a field, pick that input or textarea as the anchor node. Or if you're scrolling around the page with a mouse over a comment while reading, we choose that element.
+
+The affect is that the page appears to grow up or down depending on how your interacting with it as the update comes in.
+
+While reading the comment timeline, new comments are appended to the bottom of the thread with no viewport adjusts.
+
+<!-- insert gif of comment focus -->
+
+But, while focused on the comment textarea, the comment timeline appears to grow upwards instead.
+
+<!-- insert gif of textarea focus -->
+
 ## Browser support
 
 - Chrome
