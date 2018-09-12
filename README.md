@@ -51,11 +51,11 @@ The affect is that the page appears to grow up or down depending on how your int
 
 While reading the comment timeline, new comments are appended to the bottom of the thread with no viewport adjusts.
 
-![](https://user-images.githubusercontent.com/137/45395949-6d464b00-b5ed-11e8-9240-600daf4935ea.gif)
+<img width="400" src="https://user-images.githubusercontent.com/137/45395949-6d464b00-b5ed-11e8-9240-600daf4935ea.gif">
 
 But, while focused on the comment textarea, the comment timeline appears to grow upwards instead.
 
-![](https://user-images.githubusercontent.com/137/45395943-6ae3f100-b5ed-11e8-94cf-32eb89aedad2.gif)
+<img width="400" src="https://user-images.githubusercontent.com/137/45395943-6ae3f100-b5ed-11e8-94cf-32eb89aedad2.gif">
 
 ## Browser support
 
